@@ -1,0 +1,40 @@
+.entries {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding:0px;
+}
+.entries-top {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  background: #5C6BC0;
+  color: whitesmoke;
+}
+.summary {
+  font-family: 'Roboto', sans-serif;
+  max-height: 50px;
+}
+.summary-item {
+  padding: 10px;
+  align-self: center;
+  min-height: 30px;
+  flex: 1 1 auto;
+  font-size: 18pt;
+  text-align: right;
+}
+.summary-label {
+  padding: 10px;
+  min-width: 120px;
+  font-size: 18pt;
+  align-content: center;
+  color: white;
+  text-align: center;
+}
+.link-back {
+  width: 30px;
+  vertical-align: middle;
+  padding-top: 10px;
+  color: white;
+}

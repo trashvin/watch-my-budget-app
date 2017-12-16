@@ -1,0 +1,39 @@
+<div class="container" style="max-width: 350px; margin: auto auto;padding-top:15px">
+  <mat-progress-bar *ngIf="session.is_processing == true" mode="indeterminate"></mat-progress-bar>  
+  <mat-card>
+    <p class="warning">Only Google Login is currently supported!</p>
+  </mat-card>
+  <mat-card style="text-align: center">
+      <img md-card-image src="../../assets/logo_big.png" alt="Logo">      
+  </mat-card>
+  <!-- <mat-card >
+    <div class="flex-container" style="justify-content: space-between">
+      <div class="flex-child"  style="align-content: stretch;width: 100%">
+        <mat-form-field>
+            <input matInput type="text" id="usename" placeholder="Enter Username"/>
+        </mat-form-field>
+      </div>
+      <!-- <div class="flex-child" style="max-width: 100%">
+        <mat-form-field>
+            <input matInput type="password" id="password" placeholder="Enter Password"/>
+        </mat-form-field>
+      </div> -->
+      <!-- <div class="flex-child">
+          <button mat-raised-button color="primary" id="login">Login</button>
+      </div> -->
+    <!-- </div>
+  </mat-card> --> 
+  <mat-card>
+    <!-- <mat-card-title>Social Login</mat-card-title> -->
+    <mat-card-actions >
+        <button class="right" mat-raised-button id="googleLogin" color="primary" (click)="googleLogin()">Google</button>
+        <button mat-raised-button id="fbLogin" color="accent" (click)="fbLogin()">Facebook</button>
+    </mat-card-actions>
+  </mat-card>
+  <!-- <mat-card>
+      <mat-card-title>Anonymous Login</mat-card-title>
+      <mat-card-actions>
+          <button mat-raised-button (click)='anonymousLogin()' color='primary' class="center">Anonymous</button>
+      </mat-card-actions>
+  </mat-card> -->
+</div>

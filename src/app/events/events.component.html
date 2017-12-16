@@ -1,0 +1,73 @@
+<div class="events mat-elevation-z2">
+  <div class="events-top mat-elevation-z1 flex-container">
+      <div class="flex-child-center">
+          <h3>Events</h3>
+      </div>
+      <span class="fill-remaining-space"></span>
+      <div class="flex-child score mat-elevation-z6" style="padding: 10px; background:rgb(169, 206, 236);color:black">
+        Within
+        <p>{{data_source.within_count}}</p>
+      </div>
+      <div class="flex-child score" style="padding : 10px; background:#283593; color:whitesmoke">
+          Over
+          <p>{{data_source.over_count}}</p>
+      </div>
+
+  </div>
+  <button mat-mini-fab color='accent' class="action-fab-button" (click)="onAddEvent()">
+      <mat-icon class="mat-24" aria-label="add">add</mat-icon>
+  </button>
+  <mat-table #table [dataSource]="data_source" class="flex-container">
+    <ng-container matColumnDef="description" >
+      <mat-header-cell *matHeaderCellDef [style.flex]="'1 1 120px'"> Description </mat-header-cell>
+      <mat-cell class="link" *matCellDef="let event" (click)="onSelectRow(event)" [style.flex]="'1 1 120px'"> {{event.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef [style.flex]="'0 1 125px'"> Date </mat-header-cell>
+      <mat-cell *matCellDef="let event" [style.flex]="'0 1 125px'"> {{event.date.toLocaleDateString()}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="entries">
+      <mat-header-cell *matHeaderCellDef [style.flex]="'0 1 70px'"> Entries </mat-header-cell>
+      <mat-cell *matCellDef="let event" [style.flex]="'0 1 70px'">{{getEntryCount(event)}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="overview">
+      <mat-header-cell *matHeaderCellDef [style.flex]="'0 1 90px'"> Overview </mat-header-cell>
+      <mat-cell *matCellDef="let event" [style.flex]="'0 1 90px'">
+         <div *ngIf="isOverBudget(event) === false; else elseBranch">
+            <mat-progress-bar 
+            mode="determinate" 
+            value={{getProgress(event)}} 
+            color="primary"></mat-progress-bar>   
+         </div>
+         <ng-template #elseBranch>
+            <mat-progress-bar 
+            mode="determinate" 
+            value={{getProgress(event)}} 
+            color="warn"></mat-progress-bar>  
+         </ng-template>
+         <mat-hint align="end">{{event.getTotalExpense() | currency:'PHP':'code':'1.2-2'}}</mat-hint>
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef style="text-align:center" [style.flex]="'0 0 85px'"></mat-header-cell>
+        <mat-cell *matCellDef="let event" style="text-align:right" [style.flex]="'0 0 85px'">
+          <!-- <button mat-icon-button (click)="onDetailEvent(event)">
+              <mat-icon color="primary" class="mat-24" aria-label="detail">description</mat-icon>
+            </button> -->
+          <button mat-icon-button (click)="onEditEvent(event)">
+            <mat-icon color="primary" class="mat-24" aria-label="edit">edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onDeleteEvent(event)" >
+              <mat-icon color="primary" class="mat-24" aria-label="edit">close</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="column_headers"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: column_headers;" ></mat-row>
+  </mat-table>
+</div>

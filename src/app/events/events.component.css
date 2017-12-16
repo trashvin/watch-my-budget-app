@@ -1,0 +1,32 @@
+.events {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding:0px;
+  margin:0px;
+}
+.events-top {
+  padding-left: 20px;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  background:#5C6BC0;
+  color:whitesmoke;
+  vertical-align: middle;
+}
+mat-cell.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+mat-cell.closed {
+  
+}
+.summary {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color:gray;
+}
+.score {
+  text-align: center;
+  vertical-align: middle;
+  min-width: 50px;
+}

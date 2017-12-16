@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*Used to fill spaces between component to max out width*/
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+.hidden {
+  display: none;
+}
+.center {
+  margin: 10px auto;
+  text-align: center;
+}
+.action-fab-button {
+  position: fixed!important;
+  right: 50px;
+  bottom: 50px;
+  padding: 30px;
+  float: right;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+}
+div.flex-container {
+  display: flex;
+}
+div.col-centered {
+  justify-content: center;
+}
+div.col-end {
+  justify-content: flex-end;
+}
+div.col-start {
+  justify-content: flex-start;
+}
+div.flex-child {
+  align-self: flex-start;
+}
+div.flex-child-center {
+  align-self: center;
+}
+div.spacer {
+  min-width: 5px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+footer {
+  font-size: 8pt;
+}
+mat-row:nth-child(even){
+  background-color: #E8EAF6;
+  }
+
+mat-row:nth-child(odd){
+  background-color:white;
+  }
+
+
+ 

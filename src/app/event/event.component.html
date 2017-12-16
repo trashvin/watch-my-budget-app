@@ -1,0 +1,46 @@
+<div mat-dialog-container>
+  <mat-toolbar color="primary" class="mat-elevation-z2">
+    <mat-card-header>{{title}}</mat-card-header>
+  </mat-toolbar>
+  <div class="event">
+    <mat-form-field>
+        <input 
+          matInput type="text" 
+          id="description" 
+          placeholder="Description" 
+          [(ngModel)]="event.description"
+          [disabled]="action === constant.action_view"/>
+    </mat-form-field>
+    <div class="flex-container">
+      <div class="flex-child" syle="flex:1 1 70%">
+        <mat-form-field style="width:100%; padding-right:15px">
+            <input 
+              matInput [matDatepicker]="picker" 
+              placeholder="Choose a date" 
+              [(ngModel)]="event.date" 
+              [min]="min_date"
+              [disabled]="action === constant.action_view">
+            <mat-datepicker-toggle 
+              matSuffix [for]="picker"
+              [disabled]="action === constant.action_view"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="flex-child">
+        <mat-checkbox 
+          *ngIf="action !== constant.action_add" 
+          [(ngModel)]="event.is_closed"
+          [disabled]="action === constant.action_view">
+            Closed
+        </mat-checkbox>
+      </div>
+    </div>  
+    <div class="flex-container col-end">
+      <button *ngIf="action === constant.action_view" mat-raised-button (click)="onEdit()" tabindex="-1">Edit</button>  
+      <button *ngIf="action !== constant.action_view" mat-raised-button (click)="onCancel()" tabindex="-1">Cancel</button>
+      <div class="spacer"></div>
+      <button *ngIf="action === constant.action_view" mat-raised-button color="primary" (click)="onCancel()" tabindex="2">Close</button>
+      <button *ngIf="action !== constant.action_view" mat-raised-button color="primary" (click)="onSaveEvent()" tabindex="2">Save</button>
+    </div>
+  </div>
+</div>

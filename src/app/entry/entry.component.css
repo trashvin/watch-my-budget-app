@@ -1,0 +1,16 @@
+.entry {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.entry > * {
+  width: 100%;
+}
+.text-right {
+  text-align: right;
+}
+.pad-5 {
+  padding: 5px;
+}
