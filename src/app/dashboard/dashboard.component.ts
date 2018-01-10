@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     private store: LocalStorageService,
     private route: ActivatedRoute,
     private constant: AppConstants,
-    private session: SessionStorageService,
+    public session: SessionStorageService,
     private dialog: MatDialog,
     private location: Location
   ) {
