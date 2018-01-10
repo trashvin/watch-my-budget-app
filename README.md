@@ -7,6 +7,6 @@ This is a project generated with Angular CLI 1.5. It is a simple app for trackin
 ## Technology Used
 
 - Angular 5
-- MongoDB Stitch
+- MongoDB Stitch (uses v1.0 of the API)
 - Angular Material
 
