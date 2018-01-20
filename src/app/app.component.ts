@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
-import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialog, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarConfig } from "@angular/material";
 // Custom
 import { AlertService } from "./_services/alert.service";
 import { Logger } from "./_library/logger";
@@ -20,14 +20,18 @@ export class AppComponent {
   constructor(
     private alert: AlertService,
     private dialog: MatDialog,
-    private constant: AppConstants
+    private constant: AppConstants,
+    private snackBar: MatSnackBar
     
   ) {
     this.subscriber = this.alert.getMessage().subscribe(message => {
-      const dialogRef = this.dialog.open(DialogBoxComponent, {
-        data: {message: message.text, title: "Result", type: this.constant.dialog_ok_only},
-        width: "250px"
-      });
+      // const dialogRef = this.dialog.open(DialogBoxComponent, {
+      //   data: {message: message.text, title: "Result", type: this.constant.dialog_ok_only},
+      //   width: "250px"
+      // });
+      const config = new MatSnackBarConfig();
+      config.duration = 1000;
+      this.snackBar.open(message.text, "", config);
     });
 
     

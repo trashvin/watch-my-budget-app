@@ -17,9 +17,6 @@ mat-cell.link {
   text-decoration: underline;
   cursor: pointer;
 }
-mat-cell.closed {
-  
-}
 .summary {
   font-family: 'Roboto', sans-serif;
   text-align: center;

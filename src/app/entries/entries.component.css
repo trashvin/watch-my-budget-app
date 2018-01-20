@@ -9,7 +9,7 @@
   padding-bottom: 15px;
   display: flex;
   font-family: 'Roboto', sans-serif;
-  background: #5C6BC0;
+  background: #3F51B0;
   color: whitesmoke;
 }
 .summary {
@@ -37,4 +37,20 @@
   vertical-align: middle;
   padding-top: 10px;
   color: white;
+}
+
+.checkbox-round {
+  width: 1.9em;
+  height: 1.9em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: #999;
 }

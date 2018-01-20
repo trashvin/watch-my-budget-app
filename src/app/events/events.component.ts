@@ -28,7 +28,7 @@ import { Subject } from "rxjs/Subject";
 })
 export class EventsComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() events: Event[];
-  column_headers = ["description", "date", "entries", "overview", "action"];
+  column_headers = ["description", "action"];
   data_source;
   subscriber: Subscription;
   private is_view_active: boolean;

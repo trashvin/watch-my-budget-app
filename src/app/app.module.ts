@@ -6,8 +6,9 @@ import { FormsModule } from "@angular/forms";
 // material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCardModule, MatProgressBarModule, 
-         MatProgressBar, MatFormFieldModule, MatDatepicker, MatDatepickerInput, MatNativeDateModule 
+         MatProgressBar, MatFormFieldModule, MatDatepicker, MatDatepickerInput, MatNativeDateModule, MatSnackBar 
           } from "@angular/material";
+import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldControl } from "@angular/material/form-field";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -18,6 +19,7 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialog} from "@angular/material/di
 import { MatTableModule } from "@angular/material/table";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatSnackBarModule} from "@angular/material/snack-bar";
 // custom
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
@@ -72,7 +74,9 @@ import { AlertService } from "./_services/alert.service";
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthGuardService,

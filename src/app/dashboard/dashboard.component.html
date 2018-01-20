@@ -1,12 +1,12 @@
-<div  class="mat-elevation-z10">
+<div  class="mat-elevation-z24">
   <mat-progress-bar *ngIf="session.is_processing == true" mode="indeterminate" color="accent"></mat-progress-bar>
   <mat-toolbar color="primary">
-    <img src="../../assets/logo_sm_white.png" width="35px" height="35px"/> 
-    <span>&nbsp;watch my budget</span>
+    <img src="../../assets/logo_sm_white.png" width="30px" height="30px"/> 
+    <span>&nbsp;Spendlist</span>
     <span class="fill-remaining-space"></span>
     <span>
         <button mat-button [matMenuTriggerFor]="menu">
-            <img  src={{user_picture}} width="25px" height="25px">&nbsp;{{user_name}}
+            <img style="border-radius: 50%" src={{user_picture}} width="25px" height="25px">&nbsp;{{user_name}}
         </button>
         <mat-menu #menu="matMenu" >
             <button mat-menu-item (click)="onAbout()">
@@ -24,10 +24,10 @@
 <!-- <div class="notice">
   <p>Note : Lorem ipsum dolor sit amet, mei utinam sanctus tractatos at, ei mediocrem philosophia mel. At case tation oblique vel, ei omnium mediocritatem duo. Nam populo malorum voluptatibus ne, his et autem fabellas constituto. Ei esse decore iisque mea. Mel aeque nemore ea. Est in eius novum quaestio, id nec zril democritum persequeris.</p>
 </div> -->
-<router-outlet></router-outlet>
-<footer class="center">
-  A Kafenated Project. 2017.
-</footer>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
 
 
 <!-- <div>

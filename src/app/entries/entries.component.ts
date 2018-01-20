@@ -5,6 +5,8 @@ import { Subscription } from "rxjs/Subscription";
 import { Location } from "@angular/common";
 
 // custom
+import { EventComponent } from "../event/event.component";
+
 import { Event, Entry} from "../_models/index";
 import { SessionStorageService, StitchService } from "../_services/index";
 import { EntryComponent } from "../entry/entry.component";
@@ -22,7 +24,7 @@ import { DialogBoxComponent } from "../dialog-box/dialog-box.component";
 export class EntriesComponent implements OnInit {
   entries: Entry[];
   event: Event;
-  column_headers = ["exclude", "description", "amount", "action"];
+  column_headers = ["exclude", "description", "action"];
   data_source;
   private subscriber: Subscription;
   private is_view_active: boolean;

@@ -48,6 +48,7 @@ export class EventComponent {
     if ( this.action === this.constant.action_add) {
       this.stitch.addEvent(this.event);
     } else {
+      this.log.raw(this.event);
       this.stitch.updateEvent(this.event);
     }
     this.dialogRef.close();
