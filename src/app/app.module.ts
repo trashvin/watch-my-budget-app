@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { Router, ActivatedRoute, CanActivate } from "@angular/router";
 import { HttpModule } from "@angular/http";
 import { FormsModule, NgControl } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+
 // material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCardModule, MatProgressBarModule, 
@@ -59,6 +61,7 @@ import { AlertService } from "./_services/alert.service";
     BrowserModule, 
     HttpModule, 
     FormsModule, 
+    ReactiveFormsModule,
     AppRoutes,
     BrowserAnimationsModule,
     MatButtonModule,

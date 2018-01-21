@@ -9,7 +9,7 @@
   padding-bottom: 0px;
   display: flex;
   font-family: 'Roboto', sans-serif;
-  background: #5C6BC0;
+  background: #3F51B5;
   color: whitesmoke;
 }
 .summary {
@@ -69,4 +69,5 @@
 .checkbox-square:checked {
   background-color: #BDBDBD;
 }
+
 

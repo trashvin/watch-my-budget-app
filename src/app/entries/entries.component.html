@@ -18,9 +18,10 @@
   <div>
     <mat-table #table [dataSource]="data_source">
         <ng-container matColumnDef="indicator">
-            <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 5px'"></mat-header-cell>
-            <mat-cell *matCellDef="let entries" [style.flex]="'0 0 5px'" >
-              <div [style.background-color]="entries.is_expense?'#EC407A' : 'white'" style="color:white">.</div>
+            <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 20px'">
+            </mat-header-cell>
+            <mat-cell *matCellDef="let entries" [style.flex]="'0 0 20px'" >
+                <mat-icon *ngIf="entries.is_expense" color="warn" class="mat-24" aria-label="edit">bookmark</mat-icon>
             </mat-cell>
           </ng-container>
       <ng-container matColumnDef="exclude">
@@ -66,7 +67,7 @@
     <div *ngIf="data_source.has_entries === true" class="mat-elevation-z2" style="min-height: 2px"></div>
     <div *ngIf="data_source.has_entries === true" class="flex-container summary-item  mat-elevation-z5" [style.background]="data_source.total< 0 ? '#EF5350' :'#3F51B5'"
       style="color:white">
-      <span style="padding-top:3px" matTooltip="share this!">
+      <span style="padding-top:3px" matTooltip="share this!" (click)="onEmail()">
           <mat-icon class="mat-36" aria-label="share">share</mat-icon>
       </span>
       <span class="fill-remaining-space"></span>

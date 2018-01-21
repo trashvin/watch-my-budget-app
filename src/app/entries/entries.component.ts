@@ -82,6 +82,21 @@ export class EntriesComponent implements OnInit {
       }
     });
   }
+  onEmail() {
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      data: {message: `Do you send this to your email ?`, title: "Confirm Send", type: this.constant.dialog_yes_no},
+      width: "350px"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.log.raw(result);
+      if (result.result === this.constant.dialog_result_yes) {
+        this.log.i("Sending....");
+        // this.session.is_processing = true;
+        // this.event = this.session.active_event;
+        // this.stitch.deleteEntry(this.event, entry);
+      }
+    });
+  }
   onEdit(entry: Entry) {
     this.session.active_event = this.event;
     this.session.active_entry = entry;

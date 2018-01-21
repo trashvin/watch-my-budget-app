@@ -6,34 +6,43 @@
     <h3 clss="display-1" style="color:rgb(32, 32, 32)">{{title}}</h3>
   </div>
   <div class="event">
-    <mat-form-field>
-        <input 
-          matInput type="text" 
-          id="description" 
-          placeholder="Description" 
-          [(ngModel)]="event.description"
-          [disabled]="action === constant.action_view"/>
-    </mat-form-field>
-    <mat-form-field >
-        <input 
-          matInput [matDatepicker]="picker" 
-          placeholder="Choose a date" 
-          [(ngModel)]="event.date" 
-          [min]="min_date"
-          [disabled]="action === constant.action_view">
-        <mat-datepicker-toggle 
-          matSuffix [for]="picker"
-          [disabled]="action === constant.action_view"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <div>
-        <mat-checkbox 
-        *ngIf="action !== constant.action_add" 
-        [(ngModel)]="event.is_closed"
-        [disabled]="action === constant.action_view">
-          Closed
-      </mat-checkbox>
-    </div>
+    <form [formGroup]="event_form">
+            <mat-form-field style="width: 100%">
+                <input 
+                  matInput type="text" 
+                  id="description" 
+                  name="description"
+                  placeholder="Description" 
+                  formControlName = "description">
+                  <mat-error *ngIf="event_form.controls.description.invalid && event_form.controls.description.touched" style="color:red">Description name is empty.</mat-error>
+            </mat-form-field>
+            <mat-form-field style="width: 100%">
+                <input 
+                  matInput [matDatepicker]="picker" 
+                  placeholder="Choose a date" 
+                  name="date"
+                  formControlName="date" 
+                  [min]="min_date"
+                  >
+                <mat-datepicker-toggle 
+                  matSuffix [for]="picker"
+                  [disabled]="action === constant.action_view"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="event_form.controls.date.invalid">Date is invalid.</mat-error>
+            </mat-form-field>
+            <div>
+                <mat-checkbox 
+                *ngIf="action !== constant.action_add" 
+                name="is_closed"
+                formControlName="is_closed"
+                >
+                  Closed
+              </mat-checkbox>
+            </div>
+     
+         
+       
+     </form>
     <div class="flex-container col-end">
       <button *ngIf="action === constant.action_view" mat-button (click)="onEdit()" tabindex="0">Edit</button>  
       <button *ngIf="action !== constant.action_view" mat-button (click)="onCancel()" tabindex="2">Cancel</button>
