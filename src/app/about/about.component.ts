@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from "@angular/material/dialog";
 // Custom
 import { environment } from "../../environments/environment";
-import { version } from "punycode";
 
 @Component({
   selector: "app-about",
@@ -10,9 +9,9 @@ import { version } from "punycode";
   styleUrls: ["./about.component.css"]
 })
 export class AboutComponent {
-  version: string;
+  version = environment.version;
+  copyright = environment.copyright;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.version = environment.version;
   }
 
 

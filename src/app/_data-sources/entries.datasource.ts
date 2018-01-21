@@ -72,6 +72,16 @@ export class EntriesDataSource extends DataSource<Entry> {
     }
     return total;
   }
+  get has_entries(): boolean {
+    const entries = this.stitch.entriesChanged.value;
+    if ( entries != null) {
+      if ( entries.length === 0) {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
   
 
   

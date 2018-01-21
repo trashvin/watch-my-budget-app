@@ -53,4 +53,14 @@ export class EventsDataSource extends DataSource<Event> {
     }
     return count;
   }
+  get has_entries(): boolean {
+    const entries = this.stitch.eventsChanged.value;
+    if ( entries != null) {
+      if ( entries.length === 0) {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { FormControl } from "@angular/forms";
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from "@angular/material/dialog";
-
+import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from "@angular/forms";
 // Custom
 import { Event } from "../_models/index";
 import { StitchService, SessionStorageService } from "../_services/index";

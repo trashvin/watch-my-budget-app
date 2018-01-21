@@ -1,34 +1,44 @@
 <div class="mat-elavation-z12" style="min-height: 1px; background-color: #1A237E"></div>
-  <div class="entries-top  mat-elevation-z10">
-    <div class="link-back">
-      <button mat-icon-button (click)="goBack()" color="yellow">
-        <mat-icon>navigate_before</mat-icon>
-      </button>
-    </div>
-    <h4 style="padding-left: 10px">{{event.description}} </h4>
-   
-    
+<div class="entries-top  mat-elevation-z10">
+  <div class="link-back">
+    <button mat-icon-button (click)="goBack()" color="yellow">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
   </div>
+  <h4 style="padding-left: 10px">{{event.description}} </h4>
+</div>
 <div class="entries">
   <button mat-mini-fab color='accent' class="action-fab-button" (click)="onAddEntry()">
     <mat-icon class="mat-24" aria-label="add">add</mat-icon>
   </button>
-  
   <div class="mat-elevation-z2" style="min-height: 2px"></div>
+  <div *ngIf="data_source.has_entries === false" style="text-align:center">
+      <p>Start adding entries by clicking the <span> <mat-icon class="mat-24" aria-label="add">add</mat-icon></span> button below.</p>
+    </div>
   <div>
     <mat-table #table [dataSource]="data_source">
+        <ng-container matColumnDef="indicator">
+            <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 5px'"></mat-header-cell>
+            <mat-cell *matCellDef="let entries" [style.flex]="'0 0 5px'" >
+              <div [style.background-color]="entries.is_expense?'#EC407A' : 'white'" style="color:white">.</div>
+            </mat-cell>
+          </ng-container>
       <ng-container matColumnDef="exclude">
         <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 30px'"></mat-header-cell>
         <mat-cell *matCellDef="let entries" [style.flex]="'0 0 30px'">
-          <input class="checkbox-round" [(ngModel)]="entries.is_excluded" type="checkbox">
+          <input class="checkbox-square" [(ngModel)]="entries.is_excluded" type="checkbox">
+          <!-- <mat-checkbox [(ngModel)]="entries.is_excluded" style="align-self:center">
+          </mat-checkbox> -->
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef style="flex:'1 1 130px'; width:100%"> Description </mat-header-cell>
         <mat-cell *matCellDef="let entries" style="flex:'1 1 130px'; width: 100%" (click)="onEdit(entries)">
-          <div class="event-entry" style="padding:2px" [style.text-decoration]="entries.is_excluded? 'line-through':''">{{entries.description}}</div>
-          <div style="padding-top:2px;padding-bottom:2px;padding-right:2px;padding-left:2px" [style.color]="entries.is_expense? '#f44336':'black'">{{entries.amount | currency:'PHP ':'code':'1.2-2'}} </div>
+          <div class="event-entry" style="padding:2px" [style.text-decoration]="entries.is_excluded? 'line-through':''">
+            {{entries.description}}
+          </div>
+          <div style="padding-top:2px;padding-bottom:2px;padding-right:2px;padding-left:2px">{{entries.amount | currency:'PHP ':'code':'1.2-2'}} </div>
         </mat-cell>
       </ng-container>
 
@@ -53,40 +63,17 @@
       <!-- <mat-header-row *matHeaderRowDef="column_headers"></mat-header-row> -->
       <mat-row *matRowDef="let row; columns: column_headers;"></mat-row>
     </mat-table>
-    <div class="mat-elevation-z2" style="min-height: 2px"></div>
-    <div class="flex-child col-start summary-item mat-elevation-z5" 
-        [style.background]="data_source.total< 0 ? '#EF5350' :'#3F51B5'" style="color:white">
-        <span>{{data_source.total | currency:'PHP  ':'code':'1.2-2'}}</span>
-        <span class="fill-remaining-space"></span>    
-        <span style="padding-left:10px;padding-right:10px;margin-top:30px;cursor: pointer" matTooltip="Email this!">
-            <mat-icon >send</mat-icon>
-        </span>
-        
+    <div *ngIf="data_source.has_entries === true" class="mat-elevation-z2" style="min-height: 2px"></div>
+    <div *ngIf="data_source.has_entries === true" class="flex-container summary-item  mat-elevation-z5" [style.background]="data_source.total< 0 ? '#EF5350' :'#3F51B5'"
+      style="color:white">
+      <span style="padding-top:3px" matTooltip="share this!">
+          <mat-icon class="mat-36" aria-label="share">share</mat-icon>
+      </span>
+      <span class="fill-remaining-space"></span>
+      <span>{{data_source.total | currency:'PHP ':'code':'1.2-2'}}</span>
+      
+
+
     </div>
   </div>
-
-  <!-- <div class="summary flex-container" style="flex-wrap: wrap">
-    <div class="flex-child-center col-start summary-label mat-elevation-z6" style="background: #5C6BC0; ">
-        BUDGET
-    </div>
-    <div class="flex-child col-start summary-item" style="background:#FFF9C4">
-        {{data_source.total_funds | currency:'PHP  ':'code':'1.2-2'}}
-    </div>
-    <div class="flex-child-center col-start summary-label mat-elevation-z6" style="background: #5C6BC0; ">
-        EXPENSES
-    </div>
-    <div class="flex-child col-start summary-item" style="background:#FFF9C4">
-        {{data_source.total_expenses | currency:'PHP  ':'code':'1.2-2'}}
-    </div>
-    <div class="flex-child-center col-start summary-label mat-elevation-z6" style="background:#5C6BC0; ">
-        TOTAL
-    </div>
-    <div class="flex-child col-start summary-item" 
-        [style.background]="data_source.total< 0 ? '#EF5350' :'#7986CB'" style="color:white">
-        {{data_source.total | currency:'PHP  ':'code':'1.2-2'}}
-    </div>
-    
-  </div> -->
-
-
 </div>

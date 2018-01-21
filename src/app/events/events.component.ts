@@ -9,7 +9,7 @@ import {
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
-
+import { Subject } from "rxjs/Subject";
 
 // Custom
 import { EventComponent } from "../event/event.component";
@@ -19,7 +19,6 @@ import { StitchService, SessionStorageService } from "../_services/index";
 import { Logger } from "../_library/logger";
 import { EventsDataSource } from "../_data-sources/events.datasource";
 import { AppConstants } from "../app-constants";
-import { Subject } from "rxjs/Subject";
 
 @Component({
   selector: "app-events",
@@ -65,7 +64,7 @@ export class EventsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   onAddEvent() {
     const dialogRef = this.dialog.open(EventComponent, {
-      data: {title: "Add Event", action: this.constant.action_add},
+      data: {title: "New Item", action: this.constant.action_add},
       width: "410px"
     });
   }
@@ -76,14 +75,14 @@ export class EventsComponent implements OnInit, AfterViewInit, OnDestroy {
   onEditEvent(event: Event) {
     this.session.active_event = event;
     const dialogRef = this.dialog.open(EventComponent, {
-      data: {title: "Edit Event", action: this.constant.action_edit},
+      data: {title: "Edit Item", action: this.constant.action_edit},
       width: "410px"
     });
   }
   onDeleteEvent(event:Event) {
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       data: {message: `Do you want to delete ${event.description}?`, title: "Confirm Delete", type: this.constant.dialog_yes_no},
-      width: "410px"
+      width: "350px"
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -98,8 +97,8 @@ export class EventsComponent implements OnInit, AfterViewInit, OnDestroy {
   onDetailEvent(event: Event) {
     this.session.active_event = event;
     const dialogRef = this.dialog.open(EventComponent, {
-      data: {title: "Event Details", action: this.constant.action_view},
-      width: "410px"
+      data: {title: "Item Details", action: this.constant.action_view},
+      width: "350px"
     });
   }
   getEntryCount(event: Event): number {

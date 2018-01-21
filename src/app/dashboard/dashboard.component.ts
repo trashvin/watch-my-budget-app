@@ -92,4 +92,7 @@ export class DashboardComponent implements OnInit {
     this.location.back();
     this.session.is_main = true;
   }
+  onHome() {
+    this.router.navigate(["/dashboard/events"]);
+  }
 }

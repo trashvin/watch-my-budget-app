@@ -1,7 +1,7 @@
 <div mat-dialog-container>
-    <mat-toolbar color="primary" class="mat-elevation-z2">
-      <mat-card-header>{{title}}</mat-card-header>
-    </mat-toolbar>
+    <div style="padding-left:10px">
+        <h3 clss="display-1" style="color:rgb(32, 32, 32)">{{title}}</h3>
+      </div>
     <div class="message">
       <p>{{message}}</p>
     </div>
@@ -11,7 +11,5 @@
       <button *ngIf="yes_visible === true" mat-button color="primary" (click)="onYes()" tabindex="2">Yes</button>
       <button *ngIf="no_visible === true" mat-button color="primary" (click)="onNo()" tabindex="3">No</button>
     </div>
-    
-    
 </div>
   

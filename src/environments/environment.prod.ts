@@ -6,5 +6,6 @@ export const environment = {
   stitch_app_id: "watch-my-budget-zarlc",
   db_name: "watch-my-budget",
   event_collection: "events",
-  log_level: 0 // 0 - prod (only error) ; 1-error + warn + info ; 2 - all
+  log_level: 0 , // 0 - prod (only error) ; 1-error + warn + info ; 2 - all
+  copyright: "2018"
 };

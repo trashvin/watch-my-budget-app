@@ -1,43 +1,30 @@
 <div mat-dialog-container>
-  <mat-toolbar color="primary" class="mat-elevation-z2">
+  <!-- <mat-toolbar color="primary" class="mat-elevation-z2">
     <mat-card-header>{{title}}</mat-card-header>
-  </mat-toolbar>
+  </mat-toolbar> -->
+  <div style="padding-left:10px">
+    <h3 clss="display-1" style="color:rgb(32, 32, 32)">{{title}}</h3>
+  </div>
   <div class="flex-container entry">
     <mat-form-field>
-      <input 
-        matInput type="text" 
-        id="description" 
-        placeholder="Description" 
-        [(ngModel)]="entry.description" 
-        [disabled]="action === constant.action_view"/>
+      <input matInput type="text" id="description" placeholder="Description" [(ngModel)]="entry.description" [disabled]="action === constant.action_view"
+      />
     </mat-form-field>
-    <div class="flex-container col-start">
-      <div class="flex-child" style="min-width:70%">
-        <mat-form-field style="width:100%">
-          <input 
-            matInput type="text" 
-            class="text-right" 
-            id="amount" 
-            placeholder="Amount" 
-            [ngModel]="entry.amount | number :'1.2-2'" 
-            (ngModelChange)='entry.amount=$event'
-            [disabled]="action === constant.action_view"
-          />
-        </mat-form-field>
-      </div>
-      <div class="flex-child" >
-        <mat-checkbox [(ngModel)]="entry.is_expense" style="align-self:center" [disabled]="action === constant.action_view">
-          Expense
-        </mat-checkbox>
-      </div>
+    <mat-form-field>
+      <input matInput type="text" class="text-right" id="amount" placeholder="Amount" [ngModel]="entry.amount"
+        (ngModelChange)='entry.amount=$event' [disabled]="action === constant.action_view" />
+    </mat-form-field>
+    <div>
+      <mat-checkbox [(ngModel)]="entry.is_expense" style="align-self:center" [disabled]="action === constant.action_view">
+        Expense
+      </mat-checkbox>
     </div>
-
-    <div class="flex-container col-end" >
-      <button *ngIf="action === constant.action_view" mat-raised-button (click)="onEdit()" tabindex="-1">Edit</button>  
-      <button *ngIf="action !== constant.action_view" mat-raised-button tabindex="-1" (click)="onCancel()">Cancel</button>
+    <div class="flex-container col-end">
+      <button *ngIf="action === constant.action_view" mat-button (click)="onEdit()" tabindex="0">Edit</button>
+      <button *ngIf="action !== constant.action_view" mat-button tabindex="2" (click)="onCancel()">Cancel</button>
       <div class="spacer"></div>
-      <button *ngIf="action === constant.action_view" mat-raised-button color="primary" (click)="onCancel()" tabindex="2">Close</button>
-      <button *ngIf="action !== constant.action_view" mat-raised-button color="primary" tabindex="2" (click)="onSave()">Save</button>
+      <button *ngIf="action === constant.action_view" mat-button color="primary" (click)="onCancel()" tabindex="2">Close</button>
+      <button *ngIf="action !== constant.action_view" mat-button color="primary" tabindex="0" (click)="onSave()">Save</button>
     </div>
   </div>
 

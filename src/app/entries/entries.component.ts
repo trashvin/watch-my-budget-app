@@ -24,7 +24,7 @@ import { DialogBoxComponent } from "../dialog-box/dialog-box.component";
 export class EntriesComponent implements OnInit {
   entries: Entry[];
   event: Event;
-  column_headers = ["exclude", "description", "action"];
+  column_headers = ["indicator","exclude", "description", "action"];
   data_source;
   private subscriber: Subscription;
   private is_view_active: boolean;
@@ -60,17 +60,17 @@ export class EntriesComponent implements OnInit {
     this.session.is_main = false;
   }
   onAddEntry() {
-    this.session.is_processing = true;
+    // this.session.is_processing = true;
     this.log.raw(this.event);
     const dialogRef = this.dialog.open(EntryComponent, {
-      data: {title: "Add Entry", action: this.constant.action_add},
+      data: {title: "New Entry", action: this.constant.action_add},
       width: "410px"
     });
   }
   onDelete(entry: Entry) { 
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       data: {message: `Do you want to delete ${entry.description}?`, title: "Confirm Delete", type: this.constant.dialog_yes_no},
-      width: "410px"
+      width: "350px"
     });
     dialogRef.afterClosed().subscribe(result => {
       this.log.raw(result);
@@ -87,7 +87,7 @@ export class EntriesComponent implements OnInit {
     this.session.active_entry = entry;
     const dialogRef = this.dialog.open(EntryComponent, {
       data: {title: "Edit Entry", action: this.constant.action_edit},
-      width: "410px"
+      width: "350px"
     });
   }
   onDetails(entry: Entry) {
@@ -95,7 +95,7 @@ export class EntriesComponent implements OnInit {
     this.session.active_entry = entry;
     const dialogRef = this.dialog.open(EntryComponent, {
       data: {title: "Entry Detail", action: this.constant.action_view},
-      width: "410px"
+      width: "350px"
     });
   }
   goBack() {

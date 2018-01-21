@@ -3,6 +3,9 @@
     <mat-icon class="mat-24" aria-label="add">add</mat-icon>
   </button>
   <div class="mat-elevation-z2" style="min-height: 2px"></div>
+  <div *ngIf="data_source.has_entries === false" style="text-align:center">
+    <p>Start adding items by clicking the <span> <mat-icon class="mat-24" aria-label="add">add</mat-icon></span> button below.</p>
+  </div>
   <mat-table #table [dataSource]="data_source" class="flex-container">
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef [style.flex]="'1 1 120px'"></mat-header-cell>

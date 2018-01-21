@@ -11,13 +11,7 @@
   margin: 10px auto;
   text-align: center;
 }
-.action-fab-button {
-  position: fixed!important;
-  right: 50px;
-  bottom: 50px;
-  padding: 30px;
-  float: right;
-}
+
 .mat-dialog-container {
   padding: 0 !important;
 }
@@ -62,6 +56,24 @@ div.circle-bg {
 }
 div.fullpage {
   height:96vh;
+}
+@media screen and (max-width: 600px) {
+  .action-fab-button {
+    position: fixed!important;
+    right: 25px;
+    bottom: 50px;
+    padding: 30px;
+    float: right;
+  }
+}
+@media screen and (min-width: 601px){
+  .action-fab-button {
+    position: fixed!important;
+    right: 50px;
+    bottom: 50px;
+    padding: 30px;
+    float: right;
+  }
 }
 /* mat-row:nth-child(even){
   background-color: #E8EAF6;

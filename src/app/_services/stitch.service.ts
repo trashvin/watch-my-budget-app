@@ -50,9 +50,13 @@ export class StitchService {
   isAuthenticated(): boolean {
     this.log.functionName = "isAuthenticated";
     let result = false;
-    if (this.client.authedId() !== undefined) {
-      this.log.i("Authed Id:" + this.client.authedId());
-      result = true;
+    try{
+      if (this.client.authedId() !== undefined) {
+        this.log.i("Authed Id:" + this.client.authedId());
+        result = true;
+      }
+    } catch (err) {
+      this.log.w(err);
     }
     this.log.l(`Result : ${result}`);
     return result;

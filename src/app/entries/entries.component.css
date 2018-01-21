@@ -5,11 +5,11 @@
   padding:0px;
 }
 .entries-top {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   display: flex;
   font-family: 'Roboto', sans-serif;
-  background: #3F51B0;
+  background: #5C6BC0;
   color: whitesmoke;
 }
 .summary {
@@ -54,3 +54,19 @@
 .checkbox-round:checked {
   background-color: #999;
 }
+.checkbox-square {
+  width: 1.9em;
+  height: 1.9em;
+  background-color: white;
+  border-radius: 6%;
+  vertical-align: middle;
+  border: 2px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-square:checked {
+  background-color: #BDBDBD;
+}
+

@@ -1,8 +1,8 @@
 <div  class="mat-elevation-z24">
   <mat-progress-bar *ngIf="session.is_processing == true" mode="indeterminate" color="accent"></mat-progress-bar>
   <mat-toolbar color="primary">
-    <img src="../../assets/logo_sm_white.png" width="30px" height="30px"/> 
-    <span>&nbsp;Spendlist</span>
+    <img style="cursor:pointer" src="../../assets/logo_sm_white.png" width="30px" height="30px" (click)="onHome()"/> 
+    <span style="cursor:pointer" (click)="onHome()">&nbsp;Spendlist</span>
     <span class="fill-remaining-space"></span>
     <span>
         <button mat-button [matMenuTriggerFor]="menu">
